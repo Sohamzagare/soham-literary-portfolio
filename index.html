@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Soham B. Zagare — Literary Works</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400;1,600;1,700&family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --ink:#07050a;
+  --gold:#c8923a;--gold2:#e4c06e;--gold3:#f7e8b8;
+  --crimson:#8c1c2e;--crimson2:#c0405a;
+  --teal:#12605e;--teal2:#1fa89e;--teal3:#a8e6e0;
+  --violet:#2a1545;--violet2:#7c3aed;--violet3:#c4b5fd;
+  --rose:#7a1835;--rose2:#e07090;
+  --indigo:#0f1a3a;
+  --cream:#f9f2e4;--parchment:#ede0c8;--fog:#8a8070;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--ink);color:var(--cream);font-family:'Cormorant Garamond',Georgia,serif;overflow-x:hidden;cursor:none}
+
+/* NOISE */
+body::before{content:'';position:fixed;inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity:.032;pointer-events:none;z-index:9995}
+
+/* CURSOR */
+#cur{position:fixed;width:10px;height:10px;background:var(--gold);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);transition:background .2s,transform .1s;mix-blend-mode:exclusion}
+#cur-ring{position:fixed;width:40px;height:40px;border:1px solid rgba(200,146,58,.45);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .35s,height .35s,opacity .3s,border-color .3s}
+.cur-big #cur-ring{width:70px;height:70px;border-color:rgba(200,146,58,.7)}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:800;padding:1.6rem 5rem;display:flex;justify-content:space-between;align-items:center;transition:all .6s cubic-bezier(.4,0,.2,1)}
+nav.solid{background:rgba(7,5,10,.97);border-bottom:1px solid rgba(200,146,58,.12);padding:1rem 5rem}
+.nav-logo{font-family:'Cinzel',serif;font-size:.78rem;letter-spacing:.3em;color:var(--gold);text-decoration:none;text-transform:uppercase}
+.nav-links{display:flex;gap:3rem;list-style:none}
+.nav-links a{font-family:'DM Sans',sans-serif;font-size:.68rem;font-weight:300;letter-spacing:.22em;text-transform:uppercase;color:var(--fog);text-decoration:none;transition:color .3s;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:1px;background:var(--gold);transition:width .3s}
+.nav-links a:hover{color:var(--gold2)}.nav-links a:hover::after{width:100%}
+
+/* ══ HERO ══ */
+#hero{min-height:100vh;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+
+.hero-mesh{position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 100% 80% at 0% 100%, rgba(140,28,46,.45) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 70% at 100% 0%, rgba(18,96,94,.35) 0%, transparent 50%),
+    radial-gradient(ellipse 60% 60% at 50% 50%, rgba(42,21,69,.6) 0%, transparent 65%),
+    radial-gradient(ellipse 90% 90% at 80% 80%, rgba(15,26,58,.7) 0%, transparent 60%),
+    var(--ink)}
+
+/* Colour orbs — animated */
+.orb{position:absolute;border-radius:50%;pointer-events:none;filter:blur(90px)}
+.orb1{width:600px;height:600px;background:radial-gradient(circle,rgba(140,28,46,.32),transparent 70%);top:-20%;left:-20%;animation:drift1 16s ease-in-out infinite}
+.orb2{width:500px;height:500px;background:radial-gradient(circle,rgba(18,96,94,.28),transparent 70%);top:10%;right:-15%;animation:drift2 19s ease-in-out infinite}
+.orb3{width:450px;height:450px;background:radial-gradient(circle,rgba(122,58,237,.18),transparent 70%);bottom:-10%;left:35%;animation:drift3 22s ease-in-out infinite}
+.orb4{width:300px;height:300px;background:radial-gradient(circle,rgba(200,146,58,.12),transparent 70%);top:40%;left:20%;animation:drift1 14s ease-in-out infinite reverse}
+@keyframes drift1{0%,100%{transform:translate(0,0)}40%{transform:translate(60px,-80px)}70%{transform:translate(-40px,50px)}}
+@keyframes drift2{0%,100%{transform:translate(0,0)}35%{transform:translate(-70px,60px)}65%{transform:translate(50px,-40px)}}
+@keyframes drift3{0%,100%{transform:translate(0,0)}50%{transform:translate(40px,-60px)}}
+
+/* Hero book decoration */
+.hero-book-svg{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:min(850px,92vw);opacity:.028;pointer-events:none}
+
+.hero-inner{position:relative;z-index:2;text-align:center;padding:0 2rem;max-width:960px}
+
+.hero-badge{display:inline-flex;align-items:center;gap:1rem;font-family:'DM Sans',sans-serif;font-size:.62rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold2);opacity:0;animation:riseIn .9s ease .4s forwards;margin-bottom:2.5rem}
+.hero-badge::before,.hero-badge::after{content:'';width:60px;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent)}
+
+.hero-name-wrap{overflow:hidden;margin-bottom:.5rem}
+.hero-firstname{display:block;font-family:'Cinzel',serif;font-size:clamp(2.5rem,7vw,6rem);font-weight:400;letter-spacing:.12em;color:var(--parchment);opacity:0;animation:slideUp 1s cubic-bezier(.16,1,.3,1) .65s forwards}
+.hero-surname{display:block;font-family:'Cinzel Decorative',serif;font-size:clamp(3.5rem,10vw,9rem);font-weight:700;letter-spacing:.06em;line-height:.9;
+  background:linear-gradient(135deg, var(--gold) 0%, var(--gold2) 30%, var(--gold3) 55%, var(--gold2) 75%, var(--gold) 100%);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  opacity:0;animation:slideUp 1s cubic-bezier(.16,1,.3,1) .8s forwards}
+
+.hero-rule{width:0;height:1px;background:linear-gradient(to right,transparent,var(--gold),transparent);margin:2rem auto;animation:expandRule 1.2s ease 1.2s forwards}
+@keyframes expandRule{to{width:220px}}
+
+.hero-tagline{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(1.2rem,2.8vw,2rem);color:var(--parchment);line-height:1.55;opacity:0;animation:riseIn .9s ease 1.1s forwards;margin-bottom:1.5rem}
+.hero-sub{font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:300;color:var(--fog);line-height:1.95;max-width:520px;margin:0 auto 3.5rem;opacity:0;animation:riseIn .9s ease 1.3s forwards}
+
+.hero-ctas{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;opacity:0;animation:riseIn .9s ease 1.5s forwards}
+.cta-primary{font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;font-weight:500;padding:1.1rem 3rem;background:linear-gradient(135deg,var(--gold),var(--gold2));color:var(--ink);text-decoration:none;display:inline-block;transition:all .4s;clip-path:polygon(0 0,calc(100% - 14px) 0,100% 14px,100% 100%,14px 100%,0 calc(100% - 14px))}
+.cta-primary:hover{transform:translateY(-4px);box-shadow:0 20px 50px rgba(200,146,58,.4)}
+.cta-ghost{font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:.28em;text-transform:uppercase;font-weight:300;padding:1.1rem 3rem;border:1px solid rgba(200,146,58,.38);color:var(--gold2);text-decoration:none;display:inline-block;transition:all .4s}
+.cta-ghost:hover{background:rgba(200,146,58,.07);border-color:var(--gold2);transform:translateY(-4px)}
+
+.hero-scroll{position:absolute;bottom:2.8rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.7rem;opacity:0;animation:riseIn 1s ease 2.2s forwards}
+.hero-scroll span{font-family:'DM Sans',sans-serif;font-size:.56rem;letter-spacing:.5em;text-transform:uppercase;color:rgba(138,128,112,.65)}
+.scroll-pipe{width:1px;height:60px;background:rgba(200,146,58,.15);position:relative;overflow:hidden}
+.scroll-pipe::after{content:'';position:absolute;top:-60px;left:0;width:1px;height:60px;background:linear-gradient(to bottom,transparent,var(--gold));animation:pipeDrop 2s ease-in-out 2.8s infinite}
+@keyframes pipeDrop{0%{top:-60px}100%{top:120px}}
+
+/* ══ MARQUEE ══ */
+.mqrow{border-top:1px solid rgba(200,146,58,.1);border-bottom:1px solid rgba(200,146,58,.1);padding:.9rem 0;overflow:hidden;background:linear-gradient(to right,rgba(200,146,58,.04),rgba(18,96,94,.04),rgba(140,28,46,.04))}
+.mqtrack{display:flex;white-space:nowrap;animation:mq 30s linear infinite}
+.mqitem{font-family:'Cinzel',serif;font-size:.68rem;letter-spacing:.38em;text-transform:uppercase;color:rgba(200,146,58,.38);padding:0 2.8rem;flex-shrink:0}
+.mqsep{color:var(--gold);opacity:.5}
+@keyframes mq{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ══ SECTION UTILITIES ══ */
+.s-eye{font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.55em;text-transform:uppercase;color:var(--gold);margin-bottom:1rem;display:block}
+.s-head{font-family:'Cinzel',serif;font-size:clamp(2rem,4.5vw,3.6rem);font-weight:600;line-height:1.08;color:var(--cream);margin-bottom:1.5rem}
+.s-head em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;display:block;color:var(--gold2)}
+.gold-bar{width:52px;height:2px;background:linear-gradient(to right,var(--gold),var(--gold2));margin-bottom:2rem}
+
+/* ══ ABOUT SECTION ══ */
+#about{position:relative;overflow:hidden}
+.about-bg{position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 70% 60% at 0% 50%, rgba(18,96,94,.18) 0%, transparent 55%),
+    radial-gradient(ellipse 60% 50% at 100% 30%, rgba(140,28,46,.14) 0%, transparent 55%),
+    linear-gradient(to bottom, var(--ink) 0%, #0e0a12 50%, var(--ink) 100%);
+  border-top:1px solid rgba(200,146,58,.08);border-bottom:1px solid rgba(200,146,58,.08)}
+
+.about-layout{max-width:1360px;margin:0 auto;padding:10rem 5rem;display:grid;grid-template-columns:420px 1fr;gap:7rem;align-items:start}
+
+/* Portrait card */
+.portrait-stack{position:relative;width:100%}
+.portrait-decor-a{position:absolute;top:18px;left:18px;right:-18px;bottom:-18px;border:1px solid rgba(18,96,94,.35);border-radius:2px}
+.portrait-decor-b{position:absolute;top:9px;left:9px;right:-9px;bottom:-9px;border:1px solid rgba(200,146,58,.2);border-radius:2px}
+.portrait-card{width:100%;aspect-ratio:3/4.2;background:linear-gradient(160deg,rgba(42,21,69,.7) 0%,rgba(10,8,16,.95) 100%);border:1px solid rgba(200,146,58,.22);position:relative;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2rem;padding:3rem}
+/* Rotating conic glow */
+.portrait-card::before{content:'';position:absolute;top:-60%;left:-60%;width:220%;height:220%;background:conic-gradient(from 0deg at 50% 50%,transparent 0deg,rgba(200,146,58,.04) 45deg,transparent 90deg,rgba(18,96,94,.04) 180deg,transparent 225deg,rgba(140,28,46,.04) 315deg,transparent 360deg);animation:spinGlow 25s linear infinite}
+@keyframes spinGlow{100%{transform:rotate(360deg)}}
+/* Colourful lines */
+.portrait-card::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,rgba(18,96,94,.08) 0%,transparent 30%,transparent 70%,rgba(140,28,46,.08) 100%);pointer-events:none}
+
+.monogram{font-family:'Cinzel Decorative',serif;font-size:5rem;font-weight:700;line-height:1;background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 40%,var(--gold3) 65%,var(--gold) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;position:relative;z-index:2}
+.portrait-name{text-align:center;position:relative;z-index:2}
+.portrait-name strong{display:block;font-family:'Cinzel',serif;font-size:1.15rem;font-weight:600;color:var(--cream);letter-spacing:.1em;margin-bottom:.5rem}
+.portrait-name small{font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:300}
+
+.quill-svg{position:relative;z-index:2;opacity:.65}
+
+.portrait-pills{display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center;position:relative;z-index:2}
+.pill{font-family:'DM Sans',sans-serif;font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;padding:.35rem 1rem;border:1px solid;font-weight:400}
+.pill-g{border-color:rgba(200,146,58,.4);color:var(--gold2)}
+.pill-t{border-color:rgba(30,168,158,.4);color:var(--teal3)}
+.pill-c{border-color:rgba(192,64,90,.4);color:var(--rose2)}
+.pill-v{border-color:rgba(196,181,253,.35);color:var(--violet3)}
+
+/* About text */
+.about-text-col{padding-top:2rem}
+.about-body-text p{font-size:1.12rem;line-height:2.05;color:rgba(237,224,200,.72);margin-bottom:1.5rem}
+.about-lead{font-size:1.35rem !important;color:var(--parchment) !important;font-style:italic;line-height:1.85 !important;border-left:3px solid var(--gold);padding-left:1.8rem;margin-bottom:2.2rem !important}
+.about-body-text strong{color:var(--gold2)}
+.about-body-text em{color:var(--teal3);font-style:italic}
+
+.li-link{display:inline-flex;align-items:center;gap:.9rem;margin-top:1.8rem;font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);text-decoration:none;padding:.9rem 2rem;border:1px solid rgba(200,146,58,.3);transition:all .35s;font-weight:400}
+.li-link:hover{background:rgba(200,146,58,.07);border-color:var(--gold2);transform:translateY(-3px)}
+.li-link svg{width:17px;height:17px;fill:currentColor}
+
+/* ══ MANIFESTO ══ */
+#manifesto{position:relative;padding:8rem 5rem;overflow:hidden;text-align:center}
+.mani-gradient{position:absolute;inset:0;
+  background:
+    linear-gradient(135deg,rgba(18,96,94,.25) 0%,rgba(140,28,46,.2) 40%,rgba(42,21,69,.3) 70%,rgba(200,146,58,.08) 100%);
+  border-top:1px solid rgba(200,146,58,.12);border-bottom:1px solid rgba(200,146,58,.12)}
+.mani-quote{font-family:'Cormorant Garamond',serif;font-size:clamp(1.7rem,3.8vw,3rem);font-style:italic;font-weight:300;line-height:1.5;max-width:860px;margin:0 auto;color:var(--cream);position:relative;z-index:2}
+.mani-quote em{font-style:normal;color:var(--gold2);font-weight:600}
+.mani-quote .teal-em{color:var(--teal3)}
+.mani-src{font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.38em;text-transform:uppercase;color:var(--fog);margin-top:2rem;position:relative;z-index:2}
+
+/* ══ THEMES STRIP ══ */
+.themes-sec{padding:5rem 0 6rem;overflow:hidden}
+.themes-label{font-family:'DM Sans',sans-serif;font-size:.58rem;letter-spacing:.55em;text-transform:uppercase;color:var(--gold);padding:0 5rem;margin-bottom:2.8rem;display:block}
+.themes-track{display:flex;gap:2.5rem;padding:.5rem 5rem 1.5rem;overflow-x:auto;scrollbar-width:none;cursor:grab;user-select:none;-webkit-overflow-scrolling:touch}
+.themes-track::-webkit-scrollbar{display:none}
+.themes-track.active{cursor:grabbing}
+.tcard{flex-shrink:0;width:300px;height:200px;position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.06);transition:border-color .4s,transform .4s}
+.tcard:hover{border-color:rgba(200,146,58,.3);transform:translateY(-6px)}
+.tcard-bg{position:absolute;inset:0;transition:transform .7s ease}
+.tcard:hover .tcard-bg{transform:scale(1.08)}
+.tcard-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,5,10,.9) 0%,rgba(7,5,10,.2) 60%,transparent 100%)}
+.tcard-content{position:absolute;inset:0;padding:1.6rem;display:flex;flex-direction:column;justify-content:flex-end}
+.tcard-tag{font-family:'DM Sans',sans-serif;font-size:.56rem;letter-spacing:.38em;text-transform:uppercase;margin-bottom:.5rem;font-weight:400}
+.tcard-title{font-family:'Cormorant Garamond',serif;font-size:1.28rem;color:var(--cream);line-height:1.3}
+
+/* ══ WORKS ══ */
+#works{padding:0}
+.works-header{text-align:center;padding:8rem 5rem 5rem;max-width:700px;margin:0 auto}
+
+.work-panel{position:relative;height:70vh;min-height:520px;overflow:hidden;cursor:pointer;text-decoration:none;display:block;transition:height .7s cubic-bezier(.4,0,.2,1)}
+.work-panel:hover{height:80vh}
+.wp-bg{position:absolute;inset:0;transition:transform 1s cubic-bezier(.25,.46,.45,.94)}
+.work-panel:hover .wp-bg{transform:scale(1.05)}
+
+/* Tech panel — deep teal + gold */
+.wp-tech .wp-bg{
+  background:
+    radial-gradient(ellipse 75% 60% at 75% 25%,rgba(200,146,58,.22) 0%,transparent 55%),
+    radial-gradient(ellipse 65% 55% at 10% 75%,rgba(18,96,94,.3) 0%,transparent 55%),
+    radial-gradient(ellipse 50% 40% at 50% 50%,rgba(15,26,58,.5) 0%,transparent 70%),
+    linear-gradient(160deg,#04121a 0%,#091c28 45%,#060e0c 100%)}
+.wp-tech .wp-bg::after{content:'';position:absolute;inset:0;
+  background-image:linear-gradient(rgba(200,146,58,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(200,146,58,.055) 1px,transparent 1px);
+  background-size:55px 55px;
+  mask-image:radial-gradient(ellipse 80% 70% at 75% 25%,black 0%,transparent 70%)}
+
+/* Novel panel — crimson + violet + indigo */
+.wp-novel .wp-bg{
+  background:
+    radial-gradient(ellipse 70% 60% at 25% 65%,rgba(140,28,46,.38) 0%,transparent 55%),
+    radial-gradient(ellipse 60% 55% at 80% 20%,rgba(42,21,69,.55) 0%,transparent 55%),
+    radial-gradient(ellipse 50% 40% at 60% 80%,rgba(122,58,237,.12) 0%,transparent 60%),
+    linear-gradient(150deg,#0c0610 0%,#180a14 50%,#080610 100%)}
+.wp-novel .wp-bg::before{content:'';position:absolute;inset:0;
+  background-image:repeating-linear-gradient(0deg,transparent,transparent 34px,rgba(140,28,46,.05) 35px);
+  mask-image:radial-gradient(ellipse at 25% 65%,black 0%,transparent 65%)}
+
+.wp-vignette{position:absolute;inset:0;background:linear-gradient(to top,rgba(7,5,10,.92) 0%,rgba(7,5,10,.35) 40%,transparent 100%);transition:opacity .4s}
+.work-panel:hover .wp-vignette{opacity:.75}
+
+.wp-num{position:absolute;top:2.5rem;right:3rem;font-family:'Cinzel',serif;font-size:8rem;font-weight:700;color:rgba(255,255,255,.04);line-height:1;z-index:2;transition:color .4s}
+.work-panel:hover .wp-num{color:rgba(255,255,255,.07)}
+
+/* Illustration SVGs */
+.wp-illus{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;opacity:.09;transition:opacity .5s}
+.work-panel:hover .wp-illus{opacity:.17}
+
+.wp-content{position:absolute;bottom:0;left:0;right:0;padding:3.5rem;z-index:3}
+.wp-genre{font-family:'DM Sans',sans-serif;font-size:.58rem;letter-spacing:.48em;text-transform:uppercase;margin-bottom:1rem;font-weight:400}
+.wp-tech .wp-genre{color:var(--teal2)}
+.wp-novel .wp-genre{color:var(--rose2)}
+.wp-title{font-family:'Cinzel',serif;font-size:clamp(2.2rem,4.5vw,4rem);font-weight:600;line-height:1.08;color:var(--cream);margin-bottom:1rem;transition:color .3s}
+.work-panel:hover .wp-title{color:#fff}
+.wp-title em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;display:block}
+.wp-tech .wp-title em{color:var(--gold2)}
+.wp-novel .wp-title em{color:var(--rose2)}
+.wp-desc{font-size:1rem;font-family:'Cormorant Garamond',serif;color:rgba(138,128,112,.9);line-height:1.8;max-width:540px;margin-bottom:2rem}
+.wp-cta{display:inline-flex;align-items:center;gap:.9rem;font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.3em;text-transform:uppercase;font-weight:400;transition:gap .35s}
+.wp-tech .wp-cta{color:var(--teal3)}
+.wp-novel .wp-cta{color:var(--rose2)}
+.work-panel:hover .wp-cta{gap:1.6rem}
+.wp-cta::after{content:'→';display:inline-block;transition:transform .35s}
+.work-panel:hover .wp-cta::after{transform:translateX(6px)}
+
+/* ══ CONTACT ══ */
+#contact{padding:10rem 5rem;text-align:center;position:relative;overflow:hidden;
+  background:linear-gradient(to bottom,var(--ink),#0a0610);
+  border-top:1px solid rgba(200,146,58,.08)}
+.ct-rings{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.04;pointer-events:none;animation:slowSpin 40s linear infinite}
+@keyframes slowSpin{100%{transform:translate(-50%,-50%) rotate(360deg)}}
+.ct-orn{font-family:'Cinzel',serif;font-size:.7rem;letter-spacing:.6em;text-transform:uppercase;color:var(--gold);opacity:.55;margin-bottom:2rem;position:relative;z-index:2;display:block}
+.ct-head{font-family:'Cinzel',serif;font-size:clamp(2.5rem,5.5vw,4.8rem);font-weight:600;color:var(--cream);line-height:1.05;margin-bottom:1.2rem;position:relative;z-index:2}
+.ct-head em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;color:var(--gold2)}
+.ct-sub{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-style:italic;color:var(--fog);max-width:460px;margin:0 auto 3.5rem;position:relative;z-index:2;line-height:1.9}
+
+footer{padding:2.2rem 5rem;border-top:1px solid rgba(200,146,58,.07);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem}
+footer p{font-family:'DM Sans',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(138,128,112,.4)}
+
+/* ══ ARTICLE VIEWS ══ */
+.art-view{display:none;position:fixed;inset:0;z-index:900;overflow-y:auto;background:var(--ink);overscroll-behavior:none}
+.art-view.open{display:block}
+
+.art-nav{position:sticky;top:0;z-index:20;padding:1.2rem clamp(2rem,8vw,8rem);background:rgba(7,5,10,.97);border-bottom:1px solid rgba(200,146,58,.1);display:flex;align-items:center;justify-content:space-between;backdrop-filter:blur(8px)}
+.art-back{font-family:'DM Sans',sans-serif;font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);background:none;border:none;cursor:none;display:flex;align-items:center;gap:.7rem;transition:gap .3s;padding:0}
+.art-back:hover{gap:1.2rem}.art-back::before{content:'←'}
+.art-prog{height:1px;width:140px;background:rgba(200,146,58,.15);position:relative;overflow:hidden}
+.art-prog-fill{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(to right,var(--gold),var(--gold2));width:0;transition:width .12s}
+
+.art-hero{min-height:62vh;display:flex;flex-direction:column;justify-content:flex-end;padding:5rem clamp(2rem,9vw,9rem) 4.5rem;position:relative;overflow:hidden}
+.art-hero-tech{background:
+  radial-gradient(ellipse 80% 65% at 70% 25%,rgba(200,146,58,.18) 0%,transparent 58%),
+  radial-gradient(ellipse 65% 55% at 8% 80%,rgba(18,96,94,.25) 0%,transparent 55%),
+  linear-gradient(160deg,#050e18 0%,#091922 55%,#070e0a 100%)}
+.art-hero-novel{background:
+  radial-gradient(ellipse 72% 65% at 22% 68%,rgba(140,28,46,.35) 0%,transparent 55%),
+  radial-gradient(ellipse 58% 52% at 78% 22%,rgba(42,21,69,.45) 0%,transparent 55%),
+  linear-gradient(145deg,#0b0610 0%,#170a14 55%,#07060f 100%)}
+
+.art-hero-lbl{font-family:'DM Sans',sans-serif;font-size:.58rem;letter-spacing:.5em;text-transform:uppercase;color:var(--gold);margin-bottom:1.3rem;position:relative;z-index:2}
+.art-hero-title{font-family:'Cinzel',serif;font-size:clamp(2.8rem,7vw,6rem);font-weight:700;line-height:1.02;color:var(--cream);margin-bottom:1.3rem;position:relative;z-index:2}
+.art-hero-title em{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:300;display:block}
+.ah-tech .art-hero-title em{color:var(--gold2)}
+.ah-novel .art-hero-title em{color:var(--rose2)}
+.art-hero-sub{font-style:italic;font-size:1.12rem;color:var(--fog);max-width:550px;line-height:1.85;margin-bottom:2.2rem;position:relative;z-index:2}
+.art-meta{display:flex;flex-wrap:wrap;gap:2.5rem;position:relative;z-index:2}
+.art-meta-i{font-family:'DM Sans',sans-serif;font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--fog)}
+.art-meta-i span{color:var(--gold2);margin-left:.4rem}
+
+/* Article body */
+.art-body{max-width:720px;margin:0 auto;padding:5.5rem clamp(2rem,5vw,3.5rem) 10rem}
+.art-body p{font-size:1.14rem;line-height:2.1;color:rgba(237,224,200,.7);margin-bottom:2rem}
+.art-body .art-lead{font-size:1.35rem;color:var(--parchment);font-style:italic;line-height:1.9;border-left:3px solid var(--gold);padding-left:2rem;margin-bottom:3rem}
+.art-body h2{font-family:'Cinzel',serif;font-size:1.55rem;font-weight:600;color:var(--cream);margin:4rem 0 1.6rem;letter-spacing:.04em}
+.art-body blockquote{margin:3.5rem 0;padding:2rem 2.5rem;border-left:3px solid var(--gold);background:rgba(200,146,58,.04);font-style:italic;font-size:1.25rem;color:var(--parchment);line-height:1.85}
+
+.art-inline{width:100%;margin:3.5rem 0;position:relative;overflow:hidden;border:1px solid rgba(200,146,58,.09)}
+.art-cap{position:absolute;bottom:0;left:0;right:0;padding:.85rem 1.4rem;background:linear-gradient(to top,rgba(7,5,10,.95),transparent);font-family:'DM Sans',sans-serif;font-size:.58rem;letter-spacing:.28em;color:var(--fog);text-transform:uppercase}
+
+/* Novel-specific */
+.part-eye{font-family:'DM Sans',sans-serif;font-size:.58rem;letter-spacing:.55em;text-transform:uppercase;color:var(--crimson2);margin:3.5rem 0 .6rem;display:block}
+.part-head{font-family:'Cinzel',serif;font-size:2rem;font-weight:600;color:var(--cream);margin-bottom:2rem}
+.ch-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;margin:2.2rem 0 3.5rem;background:rgba(200,146,58,.07)}
+.ch-cell{background:var(--ink);padding:1.5rem;transition:background .3s;cursor:default}
+.ch-cell:hover{background:rgba(200,146,58,.03)}
+.ch-num{font-family:'Cormorant Garamond',serif;font-size:.8rem;font-style:italic;color:rgba(200,146,58,.4);margin-bottom:.3rem}
+.ch-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--parchment);line-height:1.3}
+.ch-excerpt{font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--fog);font-style:italic;margin-top:.4rem;line-height:1.65}
+.pull-q{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.5rem;color:var(--parchment);text-align:center;max-width:520px;margin:4.5rem auto;padding:2.8rem;border:1px solid rgba(200,146,58,.12);line-height:1.65;position:relative}
+.pull-q::before{content:'"';font-size:8rem;color:rgba(200,146,58,.07);position:absolute;top:-2rem;left:.8rem;font-family:'Cormorant Garamond',serif;line-height:1}
+.pull-q cite{display:block;font-family:'DM Sans',sans-serif;font-size:.58rem;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);font-style:normal;margin-top:1.5rem;font-weight:300}
+.alt-strip{display:flex;align-items:center;gap:1.8rem;padding:1rem 1.6rem;background:rgba(140,28,46,.07);border-left:2px solid rgba(192,64,90,.5);margin:2.2rem 0;flex-wrap:wrap}
+.alt-lbl{font-family:'DM Sans',sans-serif;font-size:.56rem;letter-spacing:.32em;text-transform:uppercase;color:var(--rose2)}
+.alt-val{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--parchment);font-style:italic}
+.note-box{margin-top:4.5rem;padding:2.2rem 2.6rem;border:1px solid rgba(200,146,58,.12);background:rgba(200,146,58,.026)}
+.note-lbl{font-family:'DM Sans',sans-serif;font-size:.58rem;letter-spacing:.45em;text-transform:uppercase;color:var(--gold);margin-bottom:1.2rem}
+.note-box p{font-style:italic;color:var(--fog);font-size:1rem;line-height:1.95}
+.end-mark{text-align:center;font-family:'Cormorant Garamond',serif;font-style:italic;color:rgba(200,146,58,.4);margin-top:4.5rem;letter-spacing:.2em;font-size:1.1rem}
+.art-byline{font-family:'DM Sans',sans-serif;font-size:.58rem;letter-spacing:.3em;text-transform:uppercase;color:var(--fog);text-align:center;margin-top:1.2rem}
+
+/* Typewriter */
+.tw-wrap{font-family:'DM Sans',sans-serif;font-size:.76rem;letter-spacing:.16em;color:rgba(200,146,58,.55);margin-bottom:1.3rem;min-height:1.3em;position:relative;z-index:2}
+.tw-cur{animation:blink .75s step-end infinite;color:var(--gold2)}
+@keyframes blink{50%{opacity:0}}
+
+/* REVEAL ANIMATION */
+.rev{opacity:0;transform:translateY(55px);transition:opacity 1s ease,transform 1s ease}
+.rev.in{opacity:1;transform:translateY(0)}
+.rev-d1{transition-delay:.18s}.rev-d2{transition-delay:.36s}.rev-d3{transition-delay:.54s}
+
+@keyframes riseIn{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+@keyframes slideUp{from{opacity:0;transform:translateY(45px)}to{opacity:1;transform:translateY(0)}}
+
+@media(max-width:960px){
+  nav,nav.solid{padding:1.2rem 2.5rem}
+  .about-layout{grid-template-columns:1fr;gap:3.5rem;padding:6rem 2.5rem}
+  #works{padding:0}
+  #contact,#manifesto{padding:6rem 2.5rem}
+  .art-hero{padding:4rem 2rem 3rem}
+  .art-body{padding:3.5rem 1.8rem 7rem}
+  .art-nav{padding:1rem 2rem}
+  .ch-grid{grid-template-columns:1fr}
+  footer{flex-direction:column;text-align:center;padding:2rem 2.5rem}
+  .themes-track,.hero-ctas{flex-wrap:wrap}
+  .hero-ctas{flex-direction:column;align-items:center}
+}
+</style>
+</head>
+<body>
+
+<div id="cur"></div>
+<div id="cur-ring"></div>
+
+<!-- ════ NAV ════ -->
+<nav id="nav">
+  <a href="#" class="nav-logo" onclick="showHome();return false">S. B. Zagare</a>
+  <ul class="nav-links">
+    <li><a href="#about" onclick="showHome();return false">About</a></li>
+    <li><a href="#works" onclick="showHome();return false">Works</a></li>
+    <li><a href="https://www.linkedin.com/in/soham-zagare-76474922b/" target="_blank">LinkedIn ↗</a></li>
+  </ul>
+</nav>
+
+<!-- ════════════════════════════════
+     HOME VIEW
+════════════════════════════════ -->
+<div id="homeView">
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-mesh"></div>
+  <div class="orb orb1"></div><div class="orb orb2"></div><div class="orb orb3"></div><div class="orb orb4"></div>
+
+  <!-- Decorative book SVG -->
+  <svg class="hero-book-svg" viewBox="0 0 600 430" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M300 30 L560 90 L560 390 L300 420 L40 390 L40 90 Z" stroke="#c8923a" stroke-width="1.2"/>
+    <path d="M300 30 L300 420" stroke="#c8923a" stroke-width="1.8"/>
+    <g opacity=".55"><line x1="90" y1="130" x2="288" y2="130" stroke="#c8923a" stroke-width=".6"/><line x1="90" y1="158" x2="288" y2="158" stroke="#c8923a" stroke-width=".6"/><line x1="90" y1="186" x2="288" y2="186" stroke="#c8923a" stroke-width=".6"/><line x1="90" y1="214" x2="288" y2="214" stroke="#c8923a" stroke-width=".6"/><line x1="90" y1="242" x2="288" y2="242" stroke="#c8923a" stroke-width=".6"/><line x1="90" y1="270" x2="288" y2="270" stroke="#c8923a" stroke-width=".5"/></g>
+    <g opacity=".55"><line x1="312" y1="130" x2="510" y2="130" stroke="#c8923a" stroke-width=".6"/><line x1="312" y1="158" x2="510" y2="158" stroke="#c8923a" stroke-width=".6"/><line x1="312" y1="186" x2="510" y2="186" stroke="#c8923a" stroke-width=".6"/><line x1="312" y1="214" x2="510" y2="214" stroke="#c8923a" stroke-width=".6"/><line x1="312" y1="242" x2="510" y2="242" stroke="#c8923a" stroke-width=".6"/><line x1="312" y1="270" x2="510" y2="270" stroke="#c8923a" stroke-width=".5"/></g>
+    <path d="M120 105 C135 88, 160 96, 146 126 C139 144, 124 150, 120 165" stroke="#c8923a" stroke-width="1.5" opacity=".7"/>
+  </svg>
+
+  <div class="hero-inner">
+    <p class="hero-badge">Literary Works &nbsp;·&nbsp; PCCOE Pune &nbsp;·&nbsp; SE AIML 2025</p>
+    <div class="hero-name-wrap">
+      <span class="hero-firstname">Soham B.</span>
+      <span class="hero-surname">Zagare</span>
+    </div>
+    <div class="hero-rule"></div>
+    <p class="hero-tagline">Where circuits meet conscience,<br>and every algorithm tells a story.</p>
+    <p class="hero-sub">An engineer who writes. A writer who thinks in code. Two works that live at the intersection of literature and technology — one essay, one novel, both unapologetically human.</p>
+    <div class="hero-ctas">
+      <a href="#works" class="cta-primary" onclick="scrollToWorks()">Explore My Works</a>
+      <a href="#about" class="cta-ghost" onclick="scrollToAbout()">About Me</a>
+    </div>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="scroll-pipe"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="mqrow">
+  <div class="mqtrack" id="mqTrack"></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-bg"></div>
+  <div class="about-layout">
+
+    <!-- Portrait -->
+    <div class="portrait-stack rev">
+      <div class="portrait-decor-a"></div>
+      <div class="portrait-decor-b"></div>
+      <div class="portrait-card">
+        <div class="monogram">SZ</div>
+        <div class="portrait-name">
+          <strong>Soham B. Zagare</strong>
+          <small>Author · Engineer · Storyteller</small>
+        </div>
+        <svg class="quill-svg" width="90" height="65" viewBox="0 0 90 65" fill="none">
+          <path d="M80 6 C68 10, 38 28, 20 60" stroke="rgba(200,146,58,.55)" stroke-width="1.4"/>
+          <path d="M80 6 C86 18, 60 32, 54 44 C48 56, 32 60, 20 60" stroke="rgba(200,146,58,.28)" stroke-width=".8"/>
+          <path d="M20 60 L15 64 L22 58 Z" fill="rgba(200,146,58,.45)"/>
+          <circle cx="80" cy="6" r="2.5" fill="rgba(200,146,58,.35)"/>
+        </svg>
+        <div class="portrait-pills">
+          <span class="pill pill-g">AIML Engineering</span>
+          <span class="pill pill-t">English Literature</span>
+          <span class="pill pill-c">PCCOE Pune</span>
+          <span class="pill pill-v">SE · 2nd Year</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- About text — first person -->
+    <div class="about-text-col rev rev-d1">
+      <span class="s-eye">In My Own Words</span>
+      <h2 class="s-head">I was never supposed to<em>love words this much.</em></h2>
+      <div class="gold-bar"></div>
+      <div class="about-body-text">
+        <p class="about-lead">I am a second-year AIML engineering student at PCCOE, Pune — and somewhere between debugging algorithms and reading literature, I realised something: <em>they are the same thing.</em></p>
+        <p>I chose English Literature as my multidisciplinary subject because I believe the two worlds I live in are not opposites. When I write code, I am narrating a problem. When I write fiction, I am computing the human condition. <strong>Both are attempts to make the world legible</strong> — to find pattern inside chaos, to say: <em>here, this is how it works.</em></p>
+        <p>My essay, <em>Literature Meets Technology</em>, came from a question I kept asking myself in class: if a medieval poet could see a poem go viral on Instagram, what would they think? I wrote about how Wi-Fi does what they thought was magic, and why — despite algorithms, recommendation engines, and trending feeds — the human need for an honest story remains the one thing no system can optimise away.</p>
+        <p>My novel, <em>The Exit Row</em>, is something more personal. It is about a broken pilot named Daniel and a sharp girl named Lia on a plane that doesn't reach Toronto. Seven days in below-zero wilderness. Gunshots. A sabotaged crash. And between all of that — the slow, quiet, <strong>impossible work of learning to trust someone you didn't plan to meet.</strong></p>
+        <p>I wrote it because I needed to understand what it costs to leave the people who love you, and what it costs — even harder — to go back to them.</p>
+      </div>
+      <a href="https://www.linkedin.com/in/soham-zagare-76474922b/" target="_blank" class="li-link">
+        <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        Connect on LinkedIn
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- MANIFESTO -->
+<section id="manifesto" class="rev">
+  <div class="mani-gradient"></div>
+  <!-- Decorative quote marks SVG -->
+  <svg style="position:absolute;top:2rem;left:3rem;opacity:.05;pointer-events:none" width="120" height="100" viewBox="0 0 120 100"><text y="90" font-family="Georgia,serif" font-size="120" fill="#c8923a">"</text></svg>
+  <p class="mani-quote">
+    "Literature operates like the <em>longest open-source project</em> in human history —<br>
+    and unlike most software, it has been running for <span class="teal-em">three thousand years</span><br>
+    <em>with no sign of shutting down.</em>"
+  </p>
+  <p class="mani-src">— from 'Literature Meets Technology' by Soham B. Zagare</p>
+</section>
+
+<!-- THEMES HORIZONTAL SCROLL -->
+<div class="themes-sec">
+  <span class="themes-label">Themes &amp; Motifs — drag to explore</span>
+  <div class="themes-track" id="themesTrack">
+    <div class="tcard"><div class="tcard-bg" style="background:linear-gradient(145deg,#071a14,#0e3028)"></div><div class="tcard-overlay"></div><div class="tcard-content"><span class="tcard-tag" style="color:var(--teal2)">Technology · Language</span><div class="tcard-title">When Code<br>Becomes Prose</div></div></div>
+    <div class="tcard"><div class="tcard-bg" style="background:linear-gradient(145deg,#180810,#350f1e)"></div><div class="tcard-overlay"></div><div class="tcard-content"><span class="tcard-tag" style="color:var(--rose2)">Grief · Memory</span><div class="tcard-title">The Weight of<br>Unlived Years</div></div></div>
+    <div class="tcard"><div class="tcard-bg" style="background:linear-gradient(145deg,#0a081a,#18103a)"></div><div class="tcard-overlay"></div><div class="tcard-content"><span class="tcard-tag" style="color:var(--violet3)">Survival · Identity</span><div class="tcard-title">What Crisis<br>Reveals in Us</div></div></div>
+    <div class="tcard"><div class="tcard-bg" style="background:linear-gradient(145deg,#1a1000,#2e2200)"></div><div class="tcard-overlay"></div><div class="tcard-content"><span class="tcard-tag" style="color:var(--gold2)">Algorithms · Story</span><div class="tcard-title">The Medium<br>as the Message</div></div></div>
+    <div class="tcard"><div class="tcard-bg" style="background:linear-gradient(145deg,#091400,#142800)"></div><div class="tcard-overlay"></div><div class="tcard-content"><span class="tcard-tag" style="color:rgba(140,220,140,.8)">Bonds · Belonging</span><div class="tcard-title">Unplanned<br>Connections</div></div></div>
+    <div class="tcard"><div class="tcard-bg" style="background:linear-gradient(145deg,#140a1c,#28103a)"></div><div class="tcard-overlay"></div><div class="tcard-content"><span class="tcard-tag" style="color:var(--violet3)">Return · Redemption</span><div class="tcard-title">The Cost of<br>Coming Back</div></div></div>
+    <div class="tcard"><div class="tcard-bg" style="background:linear-gradient(145deg,#0a1520,#142540)"></div><div class="tcard-overlay"></div><div class="tcard-content"><span class="tcard-tag" style="color:var(--teal3)">Silence · Truth</span><div class="tcard-title">What Airports<br>Strip from You</div></div></div>
+  </div>
+</div>
+
+<!-- WORKS -->
+<section id="works">
+  <div class="works-header rev">
+    <span class="s-eye">Selected Works</span>
+    <h2 class="s-head">Two worlds.<em>One voice.</em></h2>
+    <div class="gold-bar" style="margin:0 auto"></div>
+  </div>
+
+  <!-- Work 1: Tech Essay -->
+  <a class="work-panel wp-tech" href="#" onclick="showArticle('tech');return false;">
+    <div class="wp-bg"></div>
+    <!-- Circuit illustration -->
+    <svg class="wp-illus" width="500" height="500" viewBox="0 0 500 500" fill="none">
+      <circle cx="250" cy="250" r="190" stroke="#c8923a" stroke-width="1"/>
+      <circle cx="250" cy="250" r="130" stroke="#c8923a" stroke-width=".7" opacity=".7"/>
+      <circle cx="250" cy="250" r="70" stroke="#c8923a" stroke-width=".5" opacity=".5"/>
+      <circle cx="250" cy="250" r="20" stroke="#c8923a" stroke-width=".4" opacity=".4"/>
+      <line x1="60" y1="250" x2="440" y2="250" stroke="#c8923a" stroke-width=".5" opacity=".5"/>
+      <line x1="250" y1="60" x2="250" y2="440" stroke="#c8923a" stroke-width=".5" opacity=".5"/>
+      <line x1="116" y1="116" x2="384" y2="384" stroke="#c8923a" stroke-width=".3" opacity=".3"/>
+      <line x1="384" y1="116" x2="116" y2="384" stroke="#c8923a" stroke-width=".3" opacity=".3"/>
+      <rect x="230" y="230" width="40" height="40" stroke="#c8923a" stroke-width=".8"/>
+      <rect x="210" y="145" width="80" height="24" stroke="#c8923a" stroke-width=".5"/>
+      <rect x="210" y="331" width="80" height="24" stroke="#c8923a" stroke-width=".5"/>
+      <rect x="145" y="210" width="24" height="80" stroke="#c8923a" stroke-width=".5"/>
+      <rect x="331" y="210" width="24" height="80" stroke="#c8923a" stroke-width=".5"/>
+    </svg>
+    <div class="wp-vignette"></div>
+    <div class="wp-num">01</div>
+    <div class="wp-content">
+      <div class="wp-genre">Essay · Technology &amp; Literature</div>
+      <div class="wp-title">Literature Meets<em>Technology</em></div>
+      <p class="wp-desc">How the digital revolution gave ancient storytelling faster legs — and why the human need for narrative remains the one thing no algorithm can debug, optimise, or replace.</p>
+      <div class="wp-cta">Read Essay</div>
+    </div>
+  </a>
+
+  <!-- Work 2: Novel -->
+  <a class="work-panel wp-novel" href="#" onclick="showArticle('novel');return false;">
+    <div class="wp-bg"></div>
+    <!-- Plane + stars illustration -->
+    <svg class="wp-illus" width="500" height="500" viewBox="0 0 500 500" fill="none">
+      <path d="M90 320 Q165 170 390 195" stroke="rgba(192,64,90,.7)" stroke-width="1"/>
+      <path d="M240 238 L272 206 L320 212 L246 252 Z" stroke="rgba(192,64,90,.6)" stroke-width=".8" fill="rgba(192,64,90,.07)"/>
+      <path d="M254 228 L262 198 L282 204 L262 234 Z" stroke="rgba(192,64,90,.4)" stroke-width=".6"/>
+      <path d="M272 218 L298 175 L318 182" stroke="rgba(192,64,90,.3)" stroke-width=".5"/>
+      <circle cx="170" cy="170" r="5" fill="rgba(192,64,90,.4)"/>
+      <circle cx="340" cy="148" r="3.5" fill="rgba(192,64,90,.3)"/>
+      <circle cx="240" cy="108" r="3" fill="rgba(192,64,90,.25)"/>
+      <circle cx="400" cy="180" r="2.5" fill="rgba(192,64,90,.2)"/>
+      <line x1="90" y1="360" x2="410" y2="360" stroke="rgba(192,64,90,.12)" stroke-width=".5"/>
+      <line x1="70" y1="385" x2="430" y2="385" stroke="rgba(192,64,90,.08)" stroke-width=".4"/>
+    </svg>
+    <div class="wp-vignette"></div>
+    <div class="wp-num">02</div>
+    <div class="wp-content">
+      <div class="wp-genre">Novel · Literary Fiction</div>
+      <div class="wp-title">The<em>Exit Row</em></div>
+      <p class="wp-desc">A disgraced pilot. A sharp girl alone in the world. A plane that won't reach Toronto. Seven days in below-zero wilderness, one impossible bond — and the long, brutal work of choosing to return to the people you left behind.</p>
+      <div class="wp-cta">Read Novel</div>
+    </div>
+  </a>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <!-- Rotating rings -->
+  <svg class="ct-rings" width="700" height="700" viewBox="0 0 700 700" fill="none">
+    <circle cx="350" cy="350" r="320" stroke="#c8923a" stroke-width="1"/>
+    <circle cx="350" cy="350" r="250" stroke="#c8923a" stroke-width=".6"/>
+    <circle cx="350" cy="350" r="180" stroke="#c8923a" stroke-width=".4"/>
+    <circle cx="350" cy="350" r="110" stroke="#c8923a" stroke-width=".3"/>
+    <circle cx="350" cy="350" r="6" fill="#c8923a"/>
+    <line x1="30" y1="350" x2="670" y2="350" stroke="#c8923a" stroke-width=".3"/>
+    <line x1="350" y1="30" x2="350" y2="670" stroke="#c8923a" stroke-width=".3"/>
+    <line x1="124" y1="124" x2="576" y2="576" stroke="#c8923a" stroke-width=".2"/>
+    <line x1="576" y1="124" x2="124" y2="576" stroke="#c8923a" stroke-width=".2"/>
+  </svg>
+  <span class="ct-orn">✦ &nbsp; Get in Touch &nbsp; ✦</span>
+  <h2 class="ct-head">Let's talk about<em>stories.</em></h2>
+  <p class="ct-sub">Whether it's literature, technology, or the strange beautiful territory where they meet — I'd love to connect.</p>
+  <a href="https://www.linkedin.com/in/soham-zagare-76474922b/" target="_blank" class="cta-ghost" style="position:relative;z-index:2">Connect on LinkedIn →</a>
+</section>
+
+<footer>
+  <p>© 2025 Soham B. Zagare · PCCOE, Pune</p>
+  <p>Multidisciplinary Studies · English Literature · SE AIML</p>
+</footer>
+
+</div><!-- /homeView -->
+
+
+<!-- ════════════════════════════════
+     TECH ARTICLE
+════════════════════════════════ -->
+<div id="techView" class="art-view">
+  <div class="art-nav">
+    <button class="art-back" onclick="showHome()">Back to Works</button>
+    <div class="art-prog"><div class="art-prog-fill" id="tPF"></div></div>
+  </div>
+
+  <div class="art-hero art-hero-tech ah-tech">
+    <!-- Grid overlay -->
+    <div style="position:absolute;inset:0;background-image:linear-gradient(rgba(200,146,58,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(200,146,58,.045) 1px,transparent 1px);background-size:58px 58px"></div>
+    <!-- Animated dots -->
+    <div id="cdots" style="position:absolute;inset:0;pointer-events:none;overflow:hidden"></div>
+    <div style="position:relative;z-index:2">
+      <div class="tw-wrap" id="tw"></div>
+      <p class="art-hero-lbl">Essay · Multidisciplinary Studies · PCCOE Pune · 2025</p>
+      <h1 class="art-hero-title">Literature Meets<em>Technology</em></h1>
+      <p class="art-hero-sub">On how Wi-Fi does what medieval poets thought was magic — and why the human need for story is the one thing no algorithm can optimise away.</p>
+      <div class="art-meta">
+        <div class="art-meta-i">Author<span>Soham B. Zagare</span></div>
+        <div class="art-meta-i">Course<span>English Literature · PCCOE</span></div>
+        <div class="art-meta-i">Programme<span>SE AIML · 2025</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="art-body" id="tBody">
+
+    <!-- Manuscript ↔ Digital illustration -->
+    <div class="art-inline" style="height:165px">
+      <svg width="100%" height="165" viewBox="0 0 720 165" preserveAspectRatio="xMidYMid slice">
+        <defs><linearGradient id="divg" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#c8923a" stop-opacity="0"/><stop offset="50%" stop-color="#c8923a" stop-opacity=".75"/><stop offset="100%" stop-color="#c8923a" stop-opacity="0"/></linearGradient></defs>
+        <text x="30" y="48" font-family="Cormorant Garamond,Georgia,serif" font-size="11" fill="#c8923a" opacity=".2" font-style="italic">Verba volant, scripta manent...</text>
+        <line x1="30" y1="65" x2="305" y2="65" stroke="#c8923a" stroke-width=".7" opacity=".14"/><line x1="30" y1="82" x2="305" y2="82" stroke="#c8923a" stroke-width=".7" opacity=".11"/><line x1="30" y1="99" x2="305" y2="99" stroke="#c8923a" stroke-width=".7" opacity=".09"/><line x1="30" y1="116" x2="305" y2="116" stroke="#c8923a" stroke-width=".7" opacity=".08"/><line x1="30" y1="133" x2="305" y2="133" stroke="#c8923a" stroke-width=".7" opacity=".07"/>
+        <path d="M58 43 C70 26,96 34,82 64 C75 82,60 88,57 102" stroke="#c8923a" stroke-width="1.3" fill="none" opacity=".35"/>
+        <line x1="360" y1="22" x2="360" y2="143" stroke="url(#divg)" stroke-width="1.5"/>
+        <text x="360" y="90" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="11" fill="#c8923a" opacity=".5" letter-spacing="2">↔</text>
+        <line x1="420" y1="50" x2="680" y2="50" stroke="#12605e" stroke-width=".45" opacity=".32"/><line x1="420" y1="68" x2="680" y2="68" stroke="#12605e" stroke-width=".45" opacity=".27"/><line x1="420" y1="86" x2="680" y2="86" stroke="#12605e" stroke-width=".45" opacity=".22"/><line x1="420" y1="104" x2="680" y2="104" stroke="#12605e" stroke-width=".45" opacity=".18"/><line x1="420" y1="122" x2="680" y2="122" stroke="#12605e" stroke-width=".45" opacity=".15"/>
+        <line x1="442" y1="36" x2="442" y2="140" stroke="#12605e" stroke-width=".35" opacity=".2"/><line x1="494" y1="36" x2="494" y2="140" stroke="#12605e" stroke-width=".35" opacity=".15"/><line x1="546" y1="36" x2="546" y2="140" stroke="#12605e" stroke-width=".35" opacity=".12"/><line x1="598" y1="36" x2="598" y2="140" stroke="#12605e" stroke-width=".35" opacity=".1"/><line x1="650" y1="36" x2="650" y2="140" stroke="#12605e" stroke-width=".35" opacity=".08"/>
+        <text x="165" y="157" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#c8923a" opacity=".4" letter-spacing="4">MANUSCRIPT · PRESS · PAGE</text>
+        <text x="550" y="157" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7.5" fill="#12605e" opacity=".5" letter-spacing="4">SERVER · FIBER · CLOUD</text>
+      </svg>
+      <div class="art-cap">From manuscript to megabyte — the medium changes, the message endures</div>
+    </div>
+
+    <p class="art-lead">If you had told a medieval poet that one day their words could travel across continents in less than a second, they might have assumed you were describing magic. In reality, you were simply describing Wi-Fi.</p>
+
+    <p>For most of history, literature depended on slow and fragile technologies — handwritten manuscripts, printing presses, libraries that could burn down, and letters that took months to arrive. Today, however, stories travel through servers, fiber-optic cables, and cloud storage. A poem written in a dorm room at midnight can reach thousands of readers before the writer has even finished their coffee.</p>
+    <p>In this sense, technology has not replaced literature. It has simply given it faster legs.</p>
+
+    <h2>The Ancient Art of Going Viral</h2>
+    <p>What is fascinating is that the internet has unintentionally recreated something very ancient. Long before books existed, literature was social and conversational. Stories were shared aloud, debated, retold, and reshaped by communities. In the digital age, literature has returned to that collective space. Readers comment, reinterpret, remix, and even collaborate with writers in real time. Platforms designed for entertainment have become unexpected literary ecosystems where micro-poetry, reflective essays, and serialized fiction circulate with astonishing speed.</p>
+    <blockquote>"Every generation inherits old stories, debugs them, rewrites them, and releases a slightly improved version to the world."</blockquote>
+
+    <h2>The Engineer as Storyteller</h2>
+    <p>Even engineers — who often claim to prefer logic over metaphor — are now participating in storytelling whether they realise it or not. The language of technology itself is deeply narrative. Programmers speak about architectures, frameworks, and debugging stories as if software were a living organism with moods and habits. Anyone who has spent three hours trying to fix a bug knows that coding sometimes feels less like engineering and more like detective fiction.</p>
+    <p>And if literature is the art of understanding human complexity, then technology has simply introduced new settings for the same old questions. Instead of asking how letters travel between lovers, modern stories ask how relationships survive through screens and notifications.</p>
+
+    <!-- Code as literature visual -->
+    <div class="art-inline" style="height:120px">
+      <svg width="100%" height="120" viewBox="0 0 720 120" preserveAspectRatio="xMidYMid slice">
+        <text x="40" y="35" font-family="DM Sans,sans-serif" font-size="9" fill="#1fa89e" opacity=".24" letter-spacing="1.5">function story(humanity) {</text>
+        <text x="60" y="56" font-family="DM Sans,sans-serif" font-size="9" fill="#1fa89e" opacity=".2" letter-spacing="1.5">  if (complexity &gt; logic) return poem;</text>
+        <text x="60" y="77" font-family="DM Sans,sans-serif" font-size="9" fill="#1fa89e" opacity=".2" letter-spacing="1.5">  return novel; // always returns something true</text>
+        <text x="40" y="98" font-family="DM Sans,sans-serif" font-size="9" fill="#1fa89e" opacity=".24" letter-spacing="1.5">}</text>
+        <text x="500" y="65" text-anchor="middle" font-family="Cormorant Garamond,serif" font-size="13" fill="#c8923a" opacity=".14" font-style="italic">// always returns</text>
+      </svg>
+      <div class="art-cap">The logic of emotion — code as literature's quiet cousin</div>
+    </div>
+
+    <h2>Algorithms as Silent Editors</h2>
+    <p>Some writers even argue that algorithms themselves have become silent editors of modern literature. Recommendation systems suggest what we read, trending posts determine which poems go viral, and digital platforms decide which voices rise above the noise. Yet even within this algorithmic environment, literature continues to behave unpredictably. The stories that resonate most deeply rarely follow formulas. They emerge from authenticity, from emotional clarity, from the timeless human need to understand ourselves.</p>
+    <p>The writer Marshall McLuhan famously suggested that the medium is the message — meaning that the technologies we use to communicate inevitably shape the way we think. Yet its essence remains unchanged: a carefully arranged sequence of words capable of altering how a reader sees the world.</p>
+
+    <h2>The Longest Open-Source Project</h2>
+    <p>Technology is constantly iterated, updated, and optimised. Literature works in the same way. Every generation inherits old stories, debugs them, rewrites them, and releases a slightly improved version to the world.</p>
+    <p>You could say literature operates like the longest open-source project in human history. And unlike most software, this project has been running continuously for over three thousand years — with no sign of shutting down.</p>
+
+    <div class="art-inline" style="height:95px">
+      <svg width="100%" height="95" viewBox="0 0 720 95" preserveAspectRatio="xMidYMid slice">
+        <text x="360" y="46" text-anchor="middle" font-family="Cinzel,serif" font-size="32" fill="#c8923a" opacity=".1" font-weight="700" letter-spacing="4">3,000 YEARS</text>
+        <text x="360" y="70" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="8" fill="#c8923a" opacity=".38" letter-spacing="7">AND STILL RUNNING</text>
+        <line x1="200" y1="82" x2="520" y2="82" stroke="#c8923a" stroke-width=".5" opacity=".18"/>
+      </svg>
+    </div>
+
+    <p class="end-mark">✦ &nbsp; End of Essay &nbsp; ✦</p>
+    <p class="art-byline">Soham B. Zagare · PCCOE · English Literature · SE AIML · 2025</p>
+  </div>
+</div>
+
+
+<!-- ════════════════════════════════
+     NOVEL ARTICLE
+════════════════════════════════ -->
+<div id="novelView" class="art-view">
+  <div class="art-nav">
+    <button class="art-back" onclick="showHome()">Back to Works</button>
+    <div class="art-prog"><div class="art-prog-fill" id="nPF"></div></div>
+  </div>
+
+  <div class="art-hero art-hero-novel ah-novel">
+    <!-- Stars -->
+    <svg style="position:absolute;inset:0;pointer-events:none;width:100%;height:100%" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice">
+      <circle cx="140" cy="70" r="1.1" fill="white" opacity=".28"/><circle cx="420" cy="35" r=".9" fill="white" opacity=".32"/><circle cx="700" cy="55" r="1.2" fill="white" opacity=".22"/><circle cx="980" cy="28" r="1" fill="white" opacity=".3"/><circle cx="1230" cy="72" r="1.1" fill="white" opacity=".24"/><circle cx="240" cy="115" r=".8" fill="white" opacity=".2"/><circle cx="860" cy="90" r=".9" fill="white" opacity=".22"/><circle cx="1100" cy="42" r="1" fill="white" opacity=".26"/><circle cx="560" cy="140" r=".7" fill="white" opacity=".18"/>
+    </svg>
+    <!-- Compass rose decoration -->
+    <svg style="position:absolute;right:5%;top:10%;opacity:.06;pointer-events:none" width="200" height="200" viewBox="0 0 200 200" fill="none">
+      <path d="M100 10 L120 90 L190 100 L120 110 L100 190 L80 110 L10 100 L80 90 Z" stroke="rgba(192,64,90,.9)" stroke-width="1.2"/>
+      <circle cx="100" cy="100" r="65" stroke="rgba(192,64,90,.5)" stroke-width=".7"/>
+      <circle cx="100" cy="100" r="40" stroke="rgba(192,64,90,.35)" stroke-width=".5"/>
+    </svg>
+
+    <div style="position:relative;z-index:2">
+      <p class="art-hero-lbl">Novel · Literary Fiction · PCCOE Pune · 2025</p>
+      <h1 class="art-hero-title" style="font-size:clamp(3.5rem,8vw,7rem)">The<em>Exit Row</em></h1>
+      <p class="art-hero-sub">"Some of the most important bonds are the ones we never planned for."<br><span style="font-style:normal;font-size:.82rem;color:rgba(138,128,112,.5);letter-spacing:.12em">— overheard on a plane, somewhere over nothing</span></p>
+      <div class="art-meta">
+        <div class="art-meta-i">Author<span>Soham B. Zagare</span></div>
+        <div class="art-meta-i">Structure<span>3 Parts · 22 Chapters + Epilogue</span></div>
+        <div class="art-meta-i">Course<span>English Literature · PCCOE</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="art-body" id="nBody">
+
+    <div class="pull-q">
+      Some of the most important bonds are the ones we never planned for.
+      <cite>— overheard on a plane, somewhere over nothing</cite>
+    </div>
+
+    <!-- Airport illustration -->
+    <div class="art-inline" style="height:200px">
+      <svg width="100%" height="200" viewBox="0 0 720 200" preserveAspectRatio="xMidYMid slice">
+        <defs><linearGradient id="airSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#09060e"/><stop offset="100%" stop-color="#1a0c14"/></linearGradient></defs>
+        <rect width="720" height="200" fill="url(#airSky)"/>
+        <rect x="0" y="142" width="720" height="58" fill="#0a0806"/>
+        <rect x="30" y="112" width="78" height="30" fill="#0a0806"/>
+        <rect x="148" y="93" width="120" height="49" fill="#0a0806"/>
+        <rect x="315" y="103" width="98" height="39" fill="#0a0806"/>
+        <rect x="465" y="88" width="88" height="54" fill="#0a0806"/>
+        <rect x="595" y="113" width="65" height="29" fill="#0a0806"/>
+        <!-- Windows glowing with colour -->
+        <rect x="160" y="98" width="10" height="7" fill="#8c1c2e" opacity=".55"/><rect x="178" y="98" width="10" height="7" fill="#c8923a" opacity=".45"/><rect x="196" y="98" width="10" height="7" fill="#8c1c2e" opacity=".38"/><rect x="214" y="98" width="10" height="7" fill="#c8923a" opacity=".35"/><rect x="232" y="98" width="10" height="7" fill="#1fa89e" opacity=".4"/>
+        <rect x="475" y="94" width="10" height="7" fill="#c8923a" opacity=".42"/><rect x="494" y="94" width="10" height="7" fill="#8c1c2e" opacity=".48"/><rect x="513" y="94" width="10" height="7" fill="#c8923a" opacity=".32"/>
+        <line x1="0" y1="142" x2="720" y2="142" stroke="rgba(200,146,58,.15)" stroke-width=".5"/>
+        <!-- Departure board -->
+        <rect x="305" y="105" width="78" height="23" fill="rgba(18,96,94,.1)" rx="1"/>
+        <text x="344" y="120" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="6.5" fill="#c8923a" opacity=".38" letter-spacing="1.5">C14 · TORONTO · 782</text>
+        <text x="360" y="185" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7" fill="rgba(138,128,112,.3)" letter-spacing="4">TERMINAL C · CHICAGO O'HARE</text>
+      </svg>
+      <div class="art-cap">Gate C14, Chicago O'Hare — where the story begins</div>
+    </div>
+
+    <span class="part-eye">Part One</span>
+    <div class="part-head">Altitude</div>
+
+    <div class="alt-strip">
+      <span class="alt-lbl">Flight 782</span>
+      <span class="alt-val">Chicago O'Hare → Toronto Pearson</span>
+      <span class="alt-lbl" style="margin-left:auto">Seat 17F · The Exit Row</span>
+    </div>
+
+    <p class="art-lead">Airports are honest places. That's what nobody tells you. They make you stand in lines. They take your belt, your shoes, your dignity. They show you, plainly and without sentiment, that you are one of ten thousand people in transit — not special, not exempted, not protected by rank or whatever story you'd been telling yourself on the drive over.</p>
+    <p>Daniel West had not been inside an airport in three years. Not since the day the world had decided, with the confident cruelty of the majority, what kind of man he was. Thirty-eight years old and feeling sixty — he folded himself into seat 17F, the exit row, with the efficient economy of a person who has repeated this motion so many times it no longer requires thought.</p>
+
+    <div class="ch-grid">
+      <div class="ch-cell"><div class="ch-num">Chapter I</div><div class="ch-title">The Man Who Shouldn't Be Here</div><div class="ch-excerpt">A disgraced pilot boards Flight 782. The airport strips him of every pretension.</div></div>
+      <div class="ch-cell"><div class="ch-num">Chapter II</div><div class="ch-title">The Language of Machines</div><div class="ch-excerpt">Cruising altitude. A strange quiet. Then — a sound no passenger should notice.</div></div>
+      <div class="ch-cell"><div class="ch-num">Chapter III</div><div class="ch-title">What Recognition Feels Like</div><div class="ch-excerpt">The seatbelt sign chimes. Not routine. Daniel knows before anyone else does.</div></div>
+      <div class="ch-cell"><div class="ch-num">Chapter IV</div><div class="ch-title">Controlled and Uncontrolled</div><div class="ch-excerpt">Two kinds of failure. The engineers only planned for the first kind.</div></div>
+      <div class="ch-cell"><div class="ch-num">Chapter V</div><div class="ch-title">Falling</div><div class="ch-excerpt">"Ladies and gentlemen, we are making an emergency landing." The cabin erupts.</div></div>
+      <div class="ch-cell"><div class="ch-num">Chapter VI</div><div class="ch-title">The Other Side of Silence</div><div class="ch-excerpt">He comes back in pieces. Sound first. Then cold. Then — a girl, still breathing.</div></div>
+    </div>
+
+    <!-- Crash / wilderness illustration -->
+    <div class="art-inline" style="height:205px">
+      <svg width="100%" height="205" viewBox="0 0 720 205" preserveAspectRatio="xMidYMid slice">
+        <defs><linearGradient id="wint" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#070810"/><stop offset="100%" stop-color="#0d0b14"/></linearGradient></defs>
+        <rect width="720" height="205" fill="url(#wint)"/>
+        <path d="M0 155 Q180 143,360 158 Q540 173,720 150 L720 205 L0 205 Z" fill="#09080d"/>
+        <!-- Trees -->
+        <g opacity=".52"><line x1="44" y1="155" x2="44" y2="74" stroke="#0d0c0a" stroke-width="3.5"/><path d="M44 85 L22 132 L66 132 Z" fill="#111"/><path d="M44 70 L25 108 L63 108 Z" fill="#111"/><line x1="96" y1="155" x2="96" y2="84" stroke="#0d0c0a" stroke-width="2.8"/><path d="M96 94 L78 132 L114 132 Z" fill="#111"/><line x1="138" y1="155" x2="138" y2="95" stroke="#0d0c0a" stroke-width="2.5"/><path d="M138 103 L122 136 L154 136 Z" fill="#111"/>
+        <line x1="620" y1="150" x2="620" y2="72" stroke="#0d0c0a" stroke-width="3.5"/><path d="M620 82 L598 126 L642 126 Z" fill="#111"/><path d="M620 66 L601 104 L639 104 Z" fill="#111"/><line x1="672" y1="150" x2="672" y2="86" stroke="#0d0c0a" stroke-width="2.8"/><path d="M672 95 L655 130 L689 130 Z" fill="#111"/></g>
+        <!-- Wreckage with crimson+gold glow -->
+        <g opacity=".24"><path d="M272 158 L448 150 L443 160 L278 168 Z" fill="#c8923a"/><path d="M322 152 L322 130 L374 132 L374 154 Z" fill="#c8923a"/></g>
+        <ellipse cx="360" cy="158" rx="42" ry="20" fill="rgba(140,28,46,.2)"/>
+        <ellipse cx="360" cy="158" rx="20" ry="10" fill="rgba(200,146,58,.1)"/>
+        <!-- Stars -->
+        <circle cx="130" cy="30" r=".9" fill="white" opacity=".32"/><circle cx="320" cy="16" r=".8" fill="white" opacity=".36"/><circle cx="460" cy="24" r="1" fill="white" opacity=".26"/><circle cx="600" cy="14" r=".9" fill="white" opacity=".32"/>
+        <text x="360" y="197" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7" fill="rgba(138,128,112,.28)" letter-spacing="5">NORTHERN ONTARIO · MINUS TWELVE CELSIUS</text>
+      </svg>
+      <div class="art-cap">The clearing in the boreal forest — temporary safety, measured in hours</div>
+    </div>
+
+    <span class="part-eye" style="margin-top:2rem">Part Two</span>
+    <div class="part-head">The World After Falling</div>
+
+    <p class="art-lead">Cold does not announce itself. It is absence — the withdrawal of warmth, patient and systemic and completely indifferent to the fact that you need what it is taking. Over seven days in below-zero wilderness, two strangers learn each other the way crisis teaches: quickly, without artifice, with the particular honesty that comes when performance is simply too expensive.</p>
+
+    <div class="ch-grid">
+      <div class="ch-cell"><div class="ch-num">Chapter VIII</div><div class="ch-title">What the Cold Teaches You</div><div class="ch-excerpt">Cold is absence, not attack. The first lesson of survival — and of many conversations to come.</div></div>
+      <div class="ch-cell"><div class="ch-num">Chapter IX</div><div class="ch-title">What Fire Knows</div><div class="ch-excerpt">"You can't light a log with a match." Everything is preparation for the next step.</div></div>
+      <div class="ch-cell"><div class="ch-num">Chapter XIII</div><div class="ch-title">His Truth</div><div class="ch-excerpt">Flight 418. Twenty-two dead. Eight months of investigation. A truth that never came out.</div></div>
+      <div class="ch-cell"><div class="ch-num">Chapter XIV</div><div class="ch-title">How People Become Important</div><div class="ch-excerpt">Not all at once. In accumulations — small decisions made for someone else, without making a production of it.</div></div>
+    </div>
+
+    <!-- Fire scene -->
+    <div class="art-inline" style="height:175px">
+      <svg width="100%" height="175" viewBox="0 0 720 175" preserveAspectRatio="xMidYMid slice">
+        <rect width="720" height="175" fill="#070609"/>
+        <path d="M0 132 Q360 120,720 132 L720 175 L0 175 Z" fill="#0a0806"/>
+        <defs><radialGradient id="fGL" cx="50%" cy="78%" r="42%"><stop offset="0%" stop-color="#8c1c2e" stop-opacity=".5"/><stop offset="45%" stop-color="#c8923a" stop-opacity=".14"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs>
+        <ellipse cx="360" cy="132" rx="120" ry="50" fill="url(#fGL)"/>
+        <!-- Flames -->
+        <path d="M333 130 C330 115,338 104,343 93 C346 106,341 118,354 125 C357 110,364 100,371 90 C374 105,368 118,378 130 Z" fill="rgba(200,146,58,.3)"/>
+        <path d="M340 130 C338 119,346 110,354 106 C360 112,356 122,364 130 Z" fill="rgba(200,146,58,.22)"/>
+        <!-- Two silhouettes -->
+        <circle cx="282" cy="116" r="8.5" fill="#0c0a08"/><line x1="282" y1="124" x2="282" y2="145" stroke="#0c0a08" stroke-width="5"/><line x1="282" y1="132" x2="266" y2="142" stroke="#0c0a08" stroke-width="3.2"/><line x1="282" y1="132" x2="296" y2="141" stroke="#0c0a08" stroke-width="3.2"/>
+        <circle cx="436" cy="117" r="7.5" fill="#0c0a08"/><line x1="436" y1="124" x2="434" y2="144" stroke="#0c0a08" stroke-width="4.2"/><line x1="436" y1="130" x2="422" y2="139" stroke="#0c0a08" stroke-width="2.8"/><line x1="436" y1="130" x2="448" y2="140" stroke="#0c0a08" stroke-width="2.8"/>
+        <text x="360" y="168" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7" fill="rgba(138,128,112,.28)" letter-spacing="4">THE FIRE THAT KEEPS WATCH</text>
+      </svg>
+      <div class="art-cap">Two silhouettes, one fire — the geometry of an unlikely bond</div>
+    </div>
+
+    <div class="pull-q">
+      That's the stupidest thing I've ever heard. Those are two completely different things. One is a mechanical failure that someone else engineered. The other is your daughter, who did not get a vote.
+      <cite>— Lia, Chapter XIV</cite>
+    </div>
+
+    <span class="part-eye" style="margin-top:2rem">Part Three</span>
+    <div class="part-head">After</div>
+
+    <p class="art-lead">The helicopter finds them on a frozen stream. Lia tilts her face up to the rotor wash, backpack still on her shoulders from pure habit. This is the moment of arrival — not just from the wilderness, but from the long detour both of them have been taking from the people who needed them.</p>
+
+    <div class="ch-grid">
+      <div class="ch-cell"><div class="ch-num">Chapter XIX</div><div class="ch-title">The Rescue and Its Complications</div><div class="ch-excerpt">Webb explains the case. Lia listens. Then: "What happens to my trust?" She's sixteen in April.</div></div>
+      <div class="ch-cell"><div class="ch-num">Chapter XX</div><div class="ch-title">What Lia Gave the World</div><div class="ch-excerpt">Four hours of testimony. Clear. Specific. "The most competent and decent person I have ever personally observed."</div></div>
+      <div class="ch-cell"><div class="ch-num">Chapter XXI</div><div class="ch-title">What Daniel Gave the World</div><div class="ch-excerpt">A park in Boston. She was taller than he'd expected. She found him immediately.</div></div>
+      <div class="ch-cell"><div class="ch-num">Chapter XXII</div><div class="ch-title">Exit Row</div><div class="ch-excerpt">"Go help your daughter with her homework, Daniel." He hangs up. Crosses the room. Sophie says: "Finally."</div></div>
+    </div>
+
+    <!-- Reunion scene -->
+    <div class="art-inline" style="height:170px">
+      <svg width="100%" height="170" viewBox="0 0 720 170" preserveAspectRatio="xMidYMid slice">
+        <defs><radialGradient id="parkG" cx="50%" cy="60%" r="48%"><stop offset="0%" stop-color="#c8923a" stop-opacity=".08"/><stop offset="100%" stop-color="transparent"/></radialGradient></defs>
+        <rect width="720" height="170" fill="#080c09"/>
+        <rect width="720" height="170" fill="url(#parkG)"/>
+        <path d="M160 170 Q360 112,560 170" stroke="rgba(200,146,58,.06)" stroke-width="30" fill="none"/>
+        <!-- Trees -->
+        <circle cx="82" cy="78" r="45" fill="rgba(12,20,12,.58)"/><circle cx="638" cy="74" r="42" fill="rgba(12,20,12,.52)"/><circle cx="124" cy="110" r="30" fill="rgba(12,20,12,.48)"/><circle cx="596" cy="106" r="35" fill="rgba(12,20,12,.44)"/>
+        <!-- Daniel -->
+        <circle cx="328" cy="96" r="9.5" fill="#150d0a"/><line x1="328" y1="105" x2="328" y2="130" stroke="#150d0a" stroke-width="5.5"/><line x1="328" y1="115" x2="312" y2="127" stroke="#150d0a" stroke-width="3.8"/>
+        <!-- Sophie arms around him -->
+        <circle cx="362" cy="98" r="8.5" fill="#150d0a"/><line x1="362" y1="106" x2="356" y2="130" stroke="#150d0a" stroke-width="5"/><line x1="362" y1="114" x2="345" y2="118" stroke="#150d0a" stroke-width="3.2"/><line x1="362" y1="114" x2="374" y2="128" stroke="#150d0a" stroke-width="3.2"/>
+        <ellipse cx="345" cy="116" rx="18" ry="11" fill="rgba(200,146,58,.055)"/>
+        <text x="360" y="162" text-anchor="middle" font-family="DM Sans,sans-serif" font-size="7" fill="rgba(138,128,112,.3)" letter-spacing="5">A BEGINNING · BOSTON · MAY</text>
+      </svg>
+      <div class="art-cap">A park in Boston, Saturday afternoon, May — three years, and then this</div>
+    </div>
+
+    <div class="note-box">
+      <div class="note-lbl">Author's Note</div>
+      <p>The Exit Row is a work of fiction. This book is about two things that are really one thing: what it costs to leave the people you love, and what it costs to go back to them. The wilderness is real. The cold is real. The shots fired are real. But the heart of it is two people in adjacent seats on a plane that never quite gets where it was going, finding each other anyway.</p>
+      <p style="font-family:'DM Sans',sans-serif;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--fog);margin-top:1.4rem;font-style:normal">Thank you for coming along.</p>
+    </div>
+
+    <p class="end-mark">✦ &nbsp; End &nbsp; ✦</p>
+    <p class="art-byline">Soham B. Zagare · PCCOE · English Literature · SE AIML · 2025</p>
+  </div>
+</div>
+
+
+<script>
+/* ── CURSOR ── */
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-ring');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function loop(){rx+=(mx-rx)*.11;ry+=(my-ry)*.11;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(loop)})();
+document.querySelectorAll('a,button,.work-panel,.tcard').forEach(el=>{
+  el.addEventListener('mouseenter',()=>document.body.classList.add('cur-big'));
+  el.addEventListener('mouseleave',()=>document.body.classList.remove('cur-big'));
+});
+
+/* ── NAV SCROLL ── */
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('solid',window.scrollY>50);
+},{passive:true});
+
+/* ── MARQUEE ── */
+const words=['Literature','Technology','The Exit Row','PCCOE Pune','Engineering','Storytelling','Soham B. Zagare','English Literature','AI & ML','Three Thousand Years','Open Source Prose','Fiction'];
+const mq=document.getElementById('mqTrack');
+if(mq){[...words,...words].forEach(w=>{const s=document.createElement('span');s.className='mqitem';s.innerHTML=w+' <span class="mqsep">✦</span> ';mq.appendChild(s)})}
+
+/* ── SCROLL REVEAL ── */
+const revObs=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');revObs.unobserve(e.target)}}),{threshold:.1});
+document.querySelectorAll('.rev').forEach(el=>revObs.observe(el));
+
+/* ── THEME DRAG SCROLL ── */
+const tt=document.getElementById('themesTrack');
+if(tt){let isD=false,sx,sl;
+  tt.addEventListener('mousedown',e=>{isD=true;sx=e.pageX-tt.offsetLeft;sl=tt.scrollLeft;tt.classList.add('active')});
+  tt.addEventListener('mouseleave',()=>{isD=false;tt.classList.remove('active')});
+  tt.addEventListener('mouseup',()=>{isD=false;tt.classList.remove('active')});
+  tt.addEventListener('mousemove',e=>{if(!isD)return;e.preventDefault();tt.scrollLeft=sl-(e.pageX-tt.offsetLeft-sx)*1.5});
+}
+
+/* ── SMOOTH SCROLL HELPERS ── */
+function scrollToWorks(){document.getElementById('works')?.scrollIntoView({behavior:'smooth'})}
+function scrollToAbout(){document.getElementById('about')?.scrollIntoView({behavior:'smooth'})}
+
+/* ── NAVIGATION ── */
+function showHome(){
+  document.getElementById('homeView').style.display='';
+  document.getElementById('techView').classList.remove('open');
+  document.getElementById('novelView').classList.remove('open');
+  document.getElementById('nav').style.display='';
+  window.scrollTo(0,0);
+}
+
+function showArticle(type){
+  document.getElementById('homeView').style.display='none';
+  document.getElementById('nav').style.display='none';
+  if(type==='tech'){
+    document.getElementById('techView').classList.add('open');
+    document.getElementById('novelView').classList.remove('open');
+    setupProg('techView','tPF');
+    initCircuitDots();
+    setTimeout(typewrite,500);
+  } else {
+    document.getElementById('novelView').classList.add('open');
+    document.getElementById('techView').classList.remove('open');
+    setupProg('novelView','nPF');
+  }
+  document.getElementById(type==='tech'?'techView':'novelView').scrollTo(0,0);
+}
+
+function setupProg(vid,fid){
+  const v=document.getElementById(vid),b=document.getElementById(fid);
+  if(!v||!b)return;
+  const h=()=>{const p=v.scrollTop/(v.scrollHeight-v.clientHeight)*100;b.style.width=Math.min(100,p)+'%'};
+  v.addEventListener('scroll',h,{passive:true});
+}
+
+/* ── CIRCUIT DOTS ── */
+function initCircuitDots(){
+  const c=document.getElementById('cdots');
+  if(!c||c.dataset.init)return;
+  c.dataset.init='1';
+  const pts=[[12,18],[28,54],[48,30],[65,48],[82,22],[18,72],[58,12],[38,78],[72,65],[90,45],[55,88],[35,38],[80,75],[22,92],[68,30]];
+  const st=document.createElement('style');
+  st.textContent='@keyframes cdot{0%,100%{opacity:0;transform:scale(0)}50%{opacity:.65;transform:scale(1)}}';
+  document.head.appendChild(st);
+  pts.forEach(([x,y],i)=>{
+    const d=document.createElement('div');
+    d.style.cssText=`position:absolute;left:${x}%;top:${y}%;width:3px;height:3px;background:#c8923a;border-radius:50%;opacity:0;animation:cdot ${1.4+Math.random()*.8}s ease-in-out ${i*.3}s infinite`;
+    c.appendChild(d);
+  });
+}
+
+/* ── TYPEWRITER ── */
+function typewrite(){
+  const el=document.getElementById('tw');
+  if(!el||el.dataset.done)return;
+  el.dataset.done='1';
+  const txt='// literature.exe — running for 3,000+ years';
+  let i=0;
+  el.innerHTML='<span class="tw-cur">|</span>';
+  const iv=setInterval(()=>{
+    if(i<=txt.length){el.innerHTML=txt.slice(0,i)+'<span class="tw-cur">|</span>';i++}
+    else clearInterval(iv);
+  },52);
+}
+</script>
+</body>
+</html>
